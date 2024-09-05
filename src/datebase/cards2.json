@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "https://img.freepik.com/free-photo/beautiful-kitten-with-colorful-clouds_23-2150752964.jpg",
+    "title": "Cat 1"
+  },
+  {
+    "id": 2,
+    "imgUrl": "https://i.pinimg.com/236x/c8/cc/24/c8cc24bba37a25c009647b8875aae0e3.jpg",
+    "title": "Cat 2"
+  },
+  {
+    "id": 3,
+    "imgUrl": "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
+    "title": "Cat 3"
+  },
+  {
+    "id": 4,
+    "imgUrl": "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
+    "title": "Cat 4"
+  }
+]
