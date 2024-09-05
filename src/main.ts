@@ -1,4 +1,3 @@
-
 type Card = {
   id: number;      // Уникальный идентификатор карточки
   imgUrl: string;   // URL изображения для карточки
@@ -95,6 +94,7 @@ window.addEventListener('load', () => {
         
       </div>
       `)
+    // <img class="field__card-icon" src="../src/assets/svg/${iconPath}.svg" alt="icon" />
     document.querySelector(`.field__card[data-${position}="${card.id}"]`)?.addEventListener('click', () => {
       position === 'top' ? addCardToBottom(card.id) : removeBottomCard(card.id) // Проверяем, где карточка расположена и добавляем соответствующую функцию
     })
