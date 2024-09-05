@@ -29,37 +29,36 @@ window.addEventListener('load', () => {
   ]
 
   btn1?.addEventListener('click', (e) => {
-    count = 4
-    activeCards = [];
-    checkActiveCards()
-    resetStylesBtns()
-
-    const btn = e.target as HTMLButtonElement
-    btn.classList.add('controller__list-btn--active')
-    handleButtonClick(count, cards1, 'cat')
+    handleButtonClick(e, 'cat', 4)
   })
 
   btn2?.addEventListener('click', (e) => {
-    count = 5
-    activeCards = [];
-    checkActiveCards()
-    resetStylesBtns()
-
-    const btn = e.target as HTMLButtonElement
-    btn.classList.add('controller__list-btn--active')
-
-    handleButtonClick(count, cards1, 'car')
+    handleButtonClick(e, 'car', 5)
   })
   function resetStylesBtns() {
+
     btns.forEach((btn) => btn.classList.remove('controller__list-btn--active'))
   }
-  function handleButtonClick(count: number, array: Card[], type: string) {
-    const filteredCards = filterCardsByType(array, type)
-    renderTopCards(filteredCards, count)
-    renderBottomCards()
+  function handleButtonClick(e: Event, type: string, cardCount: number) {
+
+    count = cardCount
+    activeCards = [];
+    resetStylesBtns()
+    checkActiveCards()
+
+    const btn = e.target as HTMLDivElement
+    btn.classList.add('controller__list-btn--active')
+
+    handleRender(type)
+
   }
 
-  function renderTopCards(cards: Card[], count: number) {
+  function handleRender(type: string) {
+    const filteredCards = filterCardsByType(cards1, type)
+    renderTopCards(filteredCards)
+    renderBottomCards()
+  }
+  function renderTopCards(cards: Card[]) {
     if (!fields) return false
     fields.innerHTML = ''
 
@@ -79,25 +78,19 @@ window.addEventListener('load', () => {
     isActived: boolean,
     index: number
   ) {
-    let className = ''
-    let indexCardElement = ''
-    let imgElement = '<img class="field__card-icon" src="../src/assets/svg/min.svg" alt="cat" />'
-    if (position === 'top') {
-      className = isActived ? 'field__card-active' : ''
-      indexCardElement = `<span>${index}</span>`
-      imgElement = '<img class="field__card-icon" src="../src/assets/svg/plus.svg" alt="cat" />'
-    }
+    const className = position === 'top' && isActived ? 'field__card-active' : '';
+    const indexMarkup = position === 'top' && isActived ? `<span>${index}</span>` : '';
+    const iconPath = position === 'top' ? 'plus' : 'min';
+
     container?.insertAdjacentHTML('beforeend', `
-       <div class="field__card ${className}" data-${position}="${card.id}">
-          <img class="field__card-img" src="${card.imgUrl}" alt="${card.title}" />
-          <div class="field__card-index">
-        ${indexCardElement}
-          </div>
-           ${imgElement}
-        </div>
+      <div class="field__card ${className}" data-${position}="${card.id}">
+        <img class="field__card-img" src="${card.imgUrl}" alt="${card.title}" />
+        <div class="field__card-index">${indexMarkup}</div>
+        <img class="field__card-icon" src="../src/assets/svg/${iconPath}.svg" alt="icon" />
+      </div>
       `)
     document.querySelector(`.field__card[data-${position}="${card.id}"]`)?.addEventListener('click', () => {
-      position === 'top' ? addToBottomCards(card.id) : removeBottomCard(card.id)
+      position === 'top' ? addCardToBottom(card.id) : removeBottomCard(card.id)
     })
   }
   function filterCardsByType(cards: Card[], type: string) {
@@ -113,7 +106,7 @@ window.addEventListener('load', () => {
   }
 
 
-  function addToBottomCards(id: number) {
+  function addCardToBottom(id: number) {
     fieldsBottom!.innerHTML = ''
     const card = cards1.find((el) => el.id === id)
     if (!card) return false
@@ -121,7 +114,7 @@ window.addEventListener('load', () => {
 
 
     activeCards.push(card!.id)
-    renderTopCards(cards1.filter(c => c.type === card.type), count);
+    renderTopCards(cards1.filter(c => c.type === card.type));
     renderBottomCards()
     checkActiveCards()
   }
@@ -134,7 +127,7 @@ window.addEventListener('load', () => {
     activeCards.splice(index, 1)
     document.querySelector(`.field__card[data-top="${id}"]`)?.classList.remove('field__card-active')
 
-    renderTopCards(cards1.filter(c => c.type === card.type), count);
+    renderTopCards(cards1.filter(c => c.type === card.type));
     renderBottomCards()
     checkActiveCards()
   }
