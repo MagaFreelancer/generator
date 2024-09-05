@@ -29,11 +29,11 @@ window.addEventListener('load', () => {
   ]
 
   btn1?.addEventListener('click', (e) => {
-    handleButtonClick(e, 'cat', 4)
+    handleButtonClick(e, 'cat', 5)
   })
 
   btn2?.addEventListener('click', (e) => {
-    handleButtonClick(e, 'car', 5)
+    handleButtonClick(e, 'car', 4)
   })
   function resetStylesBtns() {
 
