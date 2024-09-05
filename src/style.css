@@ -109,9 +109,9 @@ li {
 
 .controller__list-btn {
   width: 100%;
-  border: 1px solid var(--greenColor);
+  border-color: var(--greyColor);
+  background-color: var(--greyColor);
   transition: opacity 0.2s ease-in-out;
-  background-color: transparent;
   padding: 11px 40px;
   border-radius: 8px;
   font-size: 24px;
@@ -122,8 +122,9 @@ li {
 }
 .controller__list-btn:hover,
 .controller__list-btn.controller__list-btn--active {
-  border-color: var(--greyColor);
-  background-color: var(--greyColor);
+  border: 1px solid var(--greenColor);
+  background-color: transparent;
+ 
 }
 .controller__generate {
   width: 100%;
