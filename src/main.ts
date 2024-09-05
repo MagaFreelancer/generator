@@ -24,65 +24,70 @@ window.addEventListener('load', () => {
     { id: 9, imgUrl: "https://avatars.dzeninfra.ru/get-zen_doc/8098241/pub_641ec1d0798be415157b4180_641ec210d2d45b2f14e36c73/scale_1200", title: "Cat 5", type: 'cat' }
   ]
   btn1?.addEventListener('click', () => {
-    const count = 5
+    const count = 4
     gettingTopCards(count, cards1, 'cat')
   })
   btn2?.addEventListener('click', () => {
-    const count = 4
+    const count = 5
     gettingTopCards(count, cards1, 'car')
   })
   function gettingTopCards(count: number, array: Card[], type: string) {
+    renderTopCards(count, array, type)
+    renderBottomCards()
+  }
+  function renderTopCards(count: number, cards: Card[], type: string) {
     if (!fields) return false
     fields.innerHTML = ''
-    const cards = array.filter((el) => el.type === type)
+    const cardsType = cards.filter((el) => el.type === type)
     for (let i = 0; i < count; i++) {
-      createTopCard(cards[i].id, cards[i].title, cards[i].imgUrl)
+      if (!cardsType[i]) continue
+      const activedCard = activeCards.includes(cardsType[i].id)
+      createCard(cardsType[i].id, cardsType[i].title, cardsType[i].imgUrl, 'top', activedCard)
     }
   }
-  function createTopCard(id: number, title: string, imgUrl: string) {
-    fields?.insertAdjacentHTML('beforeend', `
-       <div class="field__card" data-top="${id}">
+  function renderBottomCards() {
+    if (!fieldsBottom) return false
+    fieldsBottom.innerHTML = ''
+    const findedCards: any[] = cards1.filter(item => item.id ? activeCards.includes(item.id) : false);
+    findedCards.forEach((card: any) => {
+      createCard(card.id, card.title, card.imgUrl, 'bottom', false)
+    })
+  }
+  function createCard(id: number, title: string, imgUrl: string, type: string, isActived: boolean) {
+    //выбираем контейнер для рендеринга карточек
+    const container = type === 'top' ? fields : fieldsBottom
+    let className = ''
+    if (type === 'top') {
+      className = isActived ? 'field__card-active' : ''
+    }
+    container?.insertAdjacentHTML('beforeend', `
+       <div class="field__card ${className}" data-${type}="${id}">
           <img class="field__card-img" src="${imgUrl}" alt="${title}" />
           <div class="field__card-title">${title}</div>
         </div>
       `)
-    document.querySelector(`.field__card[data-top="${id}"]`)?.addEventListener('click', () => {
-      addToBottomCards(id)
+    document.querySelector(`.field__card[data-${type}="${id}"]`)?.addEventListener('click', () => {
+      //добавляем события в зависимости от типа карточки
+      type === 'top' ? addToBottomCards(id) : removeBottomCard(id)
     })
   }
+
   function addToBottomCards(id: number) {
     fieldsBottom!.innerHTML = ''
     const card = cards1.find((el) => el.id === id)
     if (!card) return false
     document.querySelector(`.field__card[data-top="${id}"]`)?.classList.add('field__card-active')
     activeCards.push(card!.id)
-    gettingBottomCards()
+    renderBottomCards()
   }
-  function createBottomCard(id: number, title: string, imgUrl: string) {
-    fieldsBottom?.insertAdjacentHTML('beforeend', `
-       <div class="field__card" data-bottom="${id}">
-          <img class="field__card-img" src="${imgUrl}" alt="${title}" />
-          <div class="field__card-title">${title}</div>
-        </div>`)
 
-    document.querySelector(`.field__card[data-bottom="${id}"]`)?.addEventListener('click', () => {
-      removeBottomCard(id)
-    })
-  }
   function removeBottomCard(id: number) {
     const index = activeCards.indexOf(id)
     activeCards.splice(index, 1)
     document.querySelector(`.field__card[data-top="${id}"]`)?.classList.remove('field__card-active')
-    gettingBottomCards()
+    renderBottomCards()
 
   }
-  function gettingBottomCards() {
-    if (!fieldsBottom) return false
-    fieldsBottom.innerHTML = ''
-    const findedCards: any[] = cards1.filter(item => item.id ? activeCards.includes(item.id) : false);
-    findedCards.forEach((card: any) => {
-      createBottomCard(card.id, card.title, card.imgUrl)
-    })
-  }
+
 })
 
