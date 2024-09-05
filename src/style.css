@@ -156,6 +156,24 @@ li {
   transition: opacity 0.2s ease-in-out;
   cursor: pointer;
 }
+.field__card-top::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-position: center center;
+  width: 45px;
+  height: 45px;
+  background: url("../src/assets/svg/plus.svg");
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.field__card:hover::after {
+  opacity: 1;
+}
 .field__card-img {
   object-fit: cover;
 }
@@ -170,6 +188,26 @@ li {
   transition: opacity 0.2s ease-in-out;
   pointer-events: none;
   z-index: 1;
+}
+.field__card-bottom {
+  position: relative;
+}
+
+.field__card-bottom::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 70px;
+  height: 70px;
+  background: url("../src/assets/svg/min.svg");
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.field__card-bottom:hover::after {
+  opacity: 1;
 }
 .field__card:hover .field__card-icon {
   opacity: 1;

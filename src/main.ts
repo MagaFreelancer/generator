@@ -6,7 +6,6 @@ type Card = {
   type: string;     // Тип карточки (например, 'car' или 'cat')
 };
 
-
 window.addEventListener('load', () => {
   const btn1 = document.querySelector<HTMLButtonElement>('#kitBtn-1');
   const btn2 = document.querySelector<HTMLButtonElement>('#kitBtn-2');
@@ -88,13 +87,12 @@ window.addEventListener('load', () => {
   ) {
     const className = position === 'top' && isActived ? 'field__card-active' : ''; // Проверяем, что карточка активно и где она распаложена, чтобы не давать одинаковые стили
     const indexMarkup = position === 'top' && isActived ? `<span>${index}</span>` : ''; // Добавляем индекс карточки и также проверяем, где карточка расположена
-    const iconPath = position === 'top' ? 'plus' : 'min'; // Проверяем, где карточка расположена и добавляем соответствующую иконку
-
+    const cls = position === 'top' ? 'field__card-top' : 'field__card-bottom'; // Проверяем, где карточка расположена и добавляем соответствующую иконку
     container?.insertAdjacentHTML('beforeend', `
-      <div class="field__card ${className}" data-${position}="${card.id}">
+      <div class="field__card ${className} ${cls}" data-${position}="${card.id}">
         <img class="field__card-img" src="${card.imgUrl}" alt="${card.title}" />
         <div class="field__card-index">${indexMarkup}</div>
-        <img class="field__card-icon" src="../src/assets/svg/${iconPath}.svg" alt="icon" />
+        
       </div>
       `)
     document.querySelector(`.field__card[data-${position}="${card.id}"]`)?.addEventListener('click', () => {
