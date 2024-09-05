@@ -1,17 +1,18 @@
+
 type Card = {
-  id: number
-  imgUrl: string
-  title: string
-  type: string
-}
+  id: number;
+  imgUrl: string;
+  title: string;
+  type: string;
+};
+
 
 window.addEventListener('load', () => {
   const btn1 = document.querySelector<HTMLButtonElement>('#kitBtn-1');
   const btn2 = document.querySelector<HTMLButtonElement>('#kitBtn-2');
   const fields = document.querySelector<HTMLDivElement>('.field__cards');
   const fieldsBottom = document.querySelector<HTMLDivElement>('.field__cards-bottom');
-  const activeCards: any[] = [];
-  let selectedSet: Card[] | null = null
+  const activeCards: number[] = [];
   const cards1: Card[] = [
     { id: 1, imgUrl: "https://adsboard-static.spectrumdata.tech/files/blogs_content/fe2a89919d8aa9a/v7f79c8.jpg", title: "Car 1", type: "car" },
     { id: 2, imgUrl: "https://motor.ru/thumb/1500x0/filters:quality(75):no_upscale()/imgs/2022/01/27/11/5197968/f7aba1d92862152a77a6fcf637d2ea171e1defe8.jpg", title: "Car 2", type: "car" },
@@ -23,54 +24,66 @@ window.addEventListener('load', () => {
     { id: 8, imgUrl: "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200", title: "Cat 4", type: 'cat' },
     { id: 9, imgUrl: "https://avatars.dzeninfra.ru/get-zen_doc/8098241/pub_641ec1d0798be415157b4180_641ec210d2d45b2f14e36c73/scale_1200", title: "Cat 5", type: 'cat' }
   ]
+
   btn1?.addEventListener('click', () => {
     const count = 4
-    gettingTopCards(count, cards1, 'cat')
+    handleButtonClick(count, cards1, 'cat')
   })
+
   btn2?.addEventListener('click', () => {
     const count = 5
-    gettingTopCards(count, cards1, 'car')
+    handleButtonClick(count, cards1, 'car')
   })
-  function gettingTopCards(count: number, array: Card[], type: string) {
-    renderTopCards(count, array, type)
+
+  function handleButtonClick(count: number, array: Card[], type: string) {
+    const filteredCards = filterCardsByType(array, type)
+    renderTopCards(filteredCards, count)
     renderBottomCards()
   }
-  function renderTopCards(count: number, cards: Card[], type: string) {
+
+  function renderTopCards(cards: Card[], count: number) {
     if (!fields) return false
     fields.innerHTML = ''
-    const cardsType = cards.filter((el) => el.type === type)
+
     for (let i = 0; i < count; i++) {
-      if (!cardsType[i]) continue
-      const activedCard = activeCards.includes(cardsType[i].id)
-      createCard(cardsType[i].id, cardsType[i].title, cardsType[i].imgUrl, 'top', activedCard)
+      // Проверяем, что карточка существует
+      if (!cards[i]) continue
+      const activedCard = activeCards.includes(cards[i].id)
+      createCard(cards[i], fields, 'top', activedCard)
     }
+  }
+  function createCard(
+    card: Card,
+    container: HTMLDivElement,
+    position: 'top' | 'bottom',
+    isActived: boolean
+  ) {
+    let className = ''
+    if (position === 'top') {
+      className = isActived ? 'field__card-active' : ''
+    }
+    container?.insertAdjacentHTML('beforeend', `
+       <div class="field__card ${className}" data-${position}="${card.id}">
+          <img class="field__card-img" src="${card.imgUrl}" alt="${card.title}" />
+          <div class="field__card-title">${card.title}</div>
+        </div>
+      `)
+    document.querySelector(`.field__card[data-${position}="${card.id}"]`)?.addEventListener('click', () => {
+      position === 'top' ? addToBottomCards(card.id) : removeBottomCard(card.id)
+    })
+  }
+  function filterCardsByType(cards: Card[], type: string) {
+    return cards.filter((el) => el.type === type)
   }
   function renderBottomCards() {
     if (!fieldsBottom) return false
     fieldsBottom.innerHTML = ''
-    const findedCards: any[] = cards1.filter(item => item.id ? activeCards.includes(item.id) : false);
-    findedCards.forEach((card: any) => {
-      createCard(card.id, card.title, card.imgUrl, 'bottom', false)
+    const findedCards: Card[] = cards1.filter(item => activeCards.includes(item.id));
+    findedCards.forEach((card) => {
+      createCard(card, fieldsBottom, 'bottom', false)
     })
   }
-  function createCard(id: number, title: string, imgUrl: string, type: string, isActived: boolean) {
-    //выбираем контейнер для рендеринга карточек
-    const container = type === 'top' ? fields : fieldsBottom
-    let className = ''
-    if (type === 'top') {
-      className = isActived ? 'field__card-active' : ''
-    }
-    container?.insertAdjacentHTML('beforeend', `
-       <div class="field__card ${className}" data-${type}="${id}">
-          <img class="field__card-img" src="${imgUrl}" alt="${title}" />
-          <div class="field__card-title">${title}</div>
-        </div>
-      `)
-    document.querySelector(`.field__card[data-${type}="${id}"]`)?.addEventListener('click', () => {
-      //добавляем события в зависимости от типа карточки
-      type === 'top' ? addToBottomCards(id) : removeBottomCard(id)
-    })
-  }
+
 
   function addToBottomCards(id: number) {
     fieldsBottom!.innerHTML = ''
@@ -86,8 +99,6 @@ window.addEventListener('load', () => {
     activeCards.splice(index, 1)
     document.querySelector(`.field__card[data-top="${id}"]`)?.classList.remove('field__card-active')
     renderBottomCards()
-
   }
 
 })
-
