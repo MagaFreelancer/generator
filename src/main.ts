@@ -1,9 +1,9 @@
 
 type Card = {
-  id: number;
-  imgUrl: string;
-  title: string;
-  type: string;
+  id: number;      // Уникальный идентификатор карточки
+  imgUrl: string;   // URL изображения для карточки
+  title: string;    // Название карточки (например, "Car 1", "Cat 1")
+  type: string;     // Тип карточки (например, 'car' или 'cat')
 };
 
 
@@ -14,8 +14,14 @@ window.addEventListener('load', () => {
   const fields = document.querySelector<HTMLDivElement>('.field__cards');
   const fieldsBottom = document.querySelector<HTMLDivElement>('.field__cards-bottom');
   const generatorBottom = document.querySelector<HTMLButtonElement>('.controller__generate');
+
+  /*Массив activeCards содержит идентификаторы карточек,
+   которые были выбраны пользователем и добавлены в нижнее поле.
+   Этот массив обновляется при каждом добавлении или удалении карточек: */
   let activeCards: number[] = [];
-  let count = 0
+  let count = 0 // Устанавливаем количество карточек для рендеринга. По умолчанию 0, при нажатии на кнопочек, будет менятся 
+
+  //данные для наших карточек
   const cards1: Card[] = [
     { id: 1, imgUrl: "https://adsboard-static.spectrumdata.tech/files/blogs_content/fe2a89919d8aa9a/v7f79c8.jpg", title: "Car 1", type: "car" },
     { id: 2, imgUrl: "https://motor.ru/thumb/1500x0/filters:quality(75):no_upscale()/imgs/2022/01/27/11/5197968/f7aba1d92862152a77a6fcf637d2ea171e1defe8.jpg", title: "Car 2", type: "car" },
@@ -29,6 +35,8 @@ window.addEventListener('load', () => {
   ]
 
   btn1?.addEventListener('click', (e) => {
+    //вызываем функцию, куда передаем event, чтобы потом менять ситили, 'type',
+    // чтобы выводить из массива данных необходимые карточки и количество выводимых карточек
     handleButtonClick(e, 'cat', 5)
   })
 
@@ -36,7 +44,7 @@ window.addEventListener('load', () => {
     handleButtonClick(e, 'car', 4)
   })
   function resetStylesBtns() {
-
+    //сбрасывание стилей кнопок
     btns.forEach((btn) => btn.classList.remove('controller__list-btn--active'))
   }
   function handleButtonClick(e: Event, type: string, cardCount: number) {
@@ -44,7 +52,7 @@ window.addEventListener('load', () => {
     count = cardCount
     activeCards = [];
     resetStylesBtns()
-    checkActiveCards()
+    checkActiveCards() //проверяет количество выбранных карточек, но в нашем случае используется для сбрасывания стилей кнопок
 
     const btn = e.target as HTMLDivElement
     btn.classList.add('controller__list-btn--active')
@@ -54,9 +62,9 @@ window.addEventListener('load', () => {
   }
 
   function handleRender(type: string) {
-    const filteredCards = filterCardsByType(cards1, type)
-    renderTopCards(filteredCards)
-    renderBottomCards()
+    const filteredCards = filterCardsByType(cards1, type) // фильтрует карточки по типу
+    renderTopCards(filteredCards) //рендерит верхних карточек
+    renderBottomCards()  //рендерит нижних карточек
   }
   function renderTopCards(cards: Card[]) {
     if (!fields) return false
@@ -65,8 +73,8 @@ window.addEventListener('load', () => {
     for (let i = 0; i < count; i++) {
       // Проверяем, что карточка существует
       if (!cards[i]) continue
-      const activedCard = activeCards.includes(cards[i].id)
-      const indexCard = activeCards.indexOf(cards[i].id) + 1
+      const activedCard = activeCards.includes(cards[i].id) // Проверяем, что карточка активна
+      const indexCard = activeCards.indexOf(cards[i].id) + 1 // Индекс активной карточки
 
       createCard(cards[i], fields, 'top', activedCard, indexCard)
     }
@@ -78,9 +86,9 @@ window.addEventListener('load', () => {
     isActived: boolean,
     index: number
   ) {
-    const className = position === 'top' && isActived ? 'field__card-active' : '';
-    const indexMarkup = position === 'top' && isActived ? `<span>${index}</span>` : '';
-    const iconPath = position === 'top' ? 'plus' : 'min';
+    const className = position === 'top' && isActived ? 'field__card-active' : ''; // Проверяем, что карточка активно и где она распаложена, чтобы не давать одинаковые стили
+    const indexMarkup = position === 'top' && isActived ? `<span>${index}</span>` : ''; // Добавляем индекс карточки и также проверяем, где карточка расположена
+    const iconPath = position === 'top' ? 'plus' : 'min'; // Проверяем, где карточка расположена и добавляем соответствующую иконку
 
     container?.insertAdjacentHTML('beforeend', `
       <div class="field__card ${className}" data-${position}="${card.id}">
@@ -90,16 +98,19 @@ window.addEventListener('load', () => {
       </div>
       `)
     document.querySelector(`.field__card[data-${position}="${card.id}"]`)?.addEventListener('click', () => {
-      position === 'top' ? addCardToBottom(card.id) : removeBottomCard(card.id)
+      position === 'top' ? addCardToBottom(card.id) : removeBottomCard(card.id) // Проверяем, где карточка расположена и добавляем соответствующую функцию
     })
   }
+  //функция для фильтрации карточек по типу
   function filterCardsByType(cards: Card[], type: string) {
     return cards.filter((el) => el.type === type)
   }
+
+  // функции для рендера  нижних карточек
   function renderBottomCards() {
     if (!fieldsBottom) return false
     fieldsBottom.innerHTML = ''
-    const findedCards: Card[] = cards1.filter(item => activeCards.includes(item.id));
+    const findedCards: Card[] = cards1.filter(item => activeCards.includes(item.id)); // Получаем только активные карточки
     findedCards.forEach((card) => {
       createCard(card, fieldsBottom, 'bottom', false, 0)
     })
@@ -108,26 +119,26 @@ window.addEventListener('load', () => {
 
   function addCardToBottom(id: number) {
     fieldsBottom!.innerHTML = ''
-    const card = cards1.find((el) => el.id === id)
+    const card = cards1.find((el) => el.id === id) // Находим карточку из общего массива по id
     if (!card) return false
-    document.querySelector(`.field__card[data-top="${id}"]`)?.classList.add('field__card-active')
+    document.querySelector(`.field__card[data-top="${id}"]`)?.classList.add('field__card-active') // Добавляем класс для активной карточки
 
 
-    activeCards.push(card!.id)
-    renderTopCards(cards1.filter(c => c.type === card.type));
-    renderBottomCards()
-    checkActiveCards()
+    activeCards.push(card!.id) // Добавляем карточку в активные карточки
+    renderTopCards(cards1.filter(c => c.type === card.type)); // Перерендерим верхние карточки, чтобы соответствующие индексы были
+    renderBottomCards() // Перерендерим нижние карточки
+    checkActiveCards()  // Проверяем количество активных карточек, чтобы сделать кнопку активной
   }
 
   function removeBottomCard(id: number) {
-    const index = activeCards.indexOf(id)
-    const card = cards1.find((el) => el.id === id)
+    const index = activeCards.indexOf(id) // Находим карточку из активных карточек по id
+    const card = cards1.find((el) => el.id === id) // Находим карточку из общего массива по id
     if (!card) return false
 
-    activeCards.splice(index, 1)
-    document.querySelector(`.field__card[data-top="${id}"]`)?.classList.remove('field__card-active')
+    activeCards.splice(index, 1) // Удаляем карточку из активных карточек
+    document.querySelector(`.field__card[data-top="${id}"]`)?.classList.remove('field__card-active') //Удаляем класс у активной карточки
 
-    renderTopCards(cards1.filter(c => c.type === card.type));
+    renderTopCards(cards1.filter(c => c.type === card.type)); // Перерендерим верхние карточки, чтобы соответствующие индексы были
     renderBottomCards()
     checkActiveCards()
   }
