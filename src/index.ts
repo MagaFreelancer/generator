@@ -8,8 +8,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div class="controller__content">
 
           <ul class="controller__list">
-            <li class="controller__list-item"> <button class="controller__list-btn" id="kitBtn-1">Набор 1</button></li>
-            <li class="controller__list-item"> <button class="controller__list-btn" id="kitBtn-2">Набор 2</button></li>
+            <li class="controller__list-item"> <button class="controller__list-btn" data-kit="cat" data-count="5">Набор 1</button></li>
+            <li class="controller__list-item"> <button class="controller__list-btn" data-kit="car" data-count="4">Набор 2</button></li>
           </ul>
 
           <button class="controller__generate" disabled>Сгенерировать</button>

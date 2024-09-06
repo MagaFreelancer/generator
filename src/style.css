@@ -237,12 +237,12 @@ li {
   pointer-events: all;
   transition: opacity 0.2s ease-in-out;
 }
-.field__card.field__card-active .field__card-index {
+.field__card.field__card--active .field__card-index {
   opacity: 1;
   pointer-events: none;
   cursor: default;
 }
-.field__card.field__card-active {
+.field__card.field__card--active {
   pointer-events: none;
   cursor: default;
 }
