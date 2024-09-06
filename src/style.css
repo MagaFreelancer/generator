@@ -2,9 +2,12 @@
   font-family: "GothamProBlack";
   src: url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot");
   src:
-    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot?#iefix") format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.woff") format("woff"),
-    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.ttf") format("truetype");
+    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.woff")
+      format("woff"),
+    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.ttf")
+      format("truetype");
   font-style: normal;
   font-weight: normal;
 }
@@ -13,9 +16,12 @@
   font-family: "GothamProBold";
   src: url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot");
   src:
-    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot?#iefix") format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.woff") format("woff"),
-    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.ttf") format("truetype");
+    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.woff")
+      format("woff"),
+    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.ttf")
+      format("truetype");
   font-style: normal;
   font-weight: normal;
 }
@@ -24,9 +30,12 @@
   font-family: "GothamProMedium";
   src: url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot");
   src:
-    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot?#iefix") format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.woff") format("woff"),
-    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.ttf") format("truetype");
+    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.woff")
+      format("woff"),
+    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.ttf")
+      format("truetype");
   font-style: normal;
   font-weight: normal;
 }
@@ -35,9 +44,12 @@
   font-family: "GothamProRegular";
   src: url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot");
   src:
-    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot?#iefix") format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.woff") format("woff"),
-    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.ttf") format("truetype");
+    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.woff")
+      format("woff"),
+    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.ttf")
+      format("truetype");
   font-style: normal;
   font-weight: normal;
 }
@@ -46,9 +58,12 @@
   font-family: "GothamProLight";
   src: url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot");
   src:
-    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot?#iefix") format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.woff") format("woff"),
-    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.ttf") format("truetype");
+    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.woff")
+      format("woff"),
+    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.ttf")
+      format("truetype");
   font-style: normal;
   font-weight: normal;
 }
@@ -124,7 +139,6 @@ li {
 .controller__list-btn.controller__list-btn--active {
   border: 1px solid var(--greenColor);
   background-color: transparent;
- 
 }
 .controller__generate {
   width: 100%;

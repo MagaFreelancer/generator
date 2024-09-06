@@ -1,7 +1,6 @@
-import './style.css'
+import "./style.css";
 
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
    <div class="generator">
       <div class="controller">
         <h1 class="controller__title">Creator AI</h1>
@@ -21,6 +20,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
       </div>
     </div>
-`
-
-
+`;
