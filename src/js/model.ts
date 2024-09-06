@@ -69,6 +69,7 @@ const modelController = (function () {
             activeCards: [],
             type: 'car',
             count: 0,
+
         }
     }
     const getTypeCards = (type: string, count: number) => {

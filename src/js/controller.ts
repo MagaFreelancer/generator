@@ -8,7 +8,7 @@ const controller = (function (creatorCtrl, uiCtrl) {
     const DOM = uiCtrl.getDomStrings()
     document.querySelectorAll<HTMLButtonElement>(DOM.setBtns).forEach((btn) => {
 
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e: any) => {
 
         const type: string | null = btn.getAttribute('data-kit')
         const count: number | null = Number(btn.getAttribute('data-count'))
@@ -17,7 +17,8 @@ const controller = (function (creatorCtrl, uiCtrl) {
           creatorCtrl.setupCount(count)
           reset()
           ctrlGetCards(type, count);
-
+          uiCtrl.toggleActive(e)
+          checkActiveCards()
         }
 
       })
@@ -33,18 +34,11 @@ const controller = (function (creatorCtrl, uiCtrl) {
   const ctrlGetCards = (type: string, count: number) => {
 
     const cards = creatorCtrl.getTypeCards(type, count)
-
     uiCtrl.renderCards(cards, 'top')
 
   }
-  const updateCards = (type: string, count: number) => {
 
-  }
-  const reset = () => {
-    creatorCtrl.resetActives()
-    uiCtrl.resetCards()
-    creatorCtrl.resetCards()
-  }
+
   const activedCard = (e: Event) => {
 
     const target = e.target as HTMLElement
@@ -59,38 +53,55 @@ const controller = (function (creatorCtrl, uiCtrl) {
     if (card) {
 
       creatorCtrl.toggleActive(id)
-
       creatorCtrl.addToActiveCards(currentCard);
 
-      uiCtrl.renderCards(TypedCards, 'top');
-      uiCtrl.renderCards(state.activeCards, 'bottom');
+      const activeCardsIds = state.activeCards.map((card: any) => card.id)
 
+      uiCtrl.renderCards(TypedCards, 'top', activeCardsIds);
+      uiCtrl.renderCards(state.activeCards, 'bottom');
+      checkActiveCards()
     }
 
   }
+
   const deleteCard = (e: Event) => {
 
-    const target = e.target as HTMLElement
-    const card = target.closest('.field__card-bottom')
-    const state = creatorCtrl.getState()
-    const id = Number(card?.getAttribute('data-bottom'))
 
+    const target = e.target as HTMLElement
+    let card, id;
+    const state = creatorCtrl.getState()
     const TypedCards = creatorCtrl.getTypeCards(state.type, state.count)
+    card = target.closest('.field__card-bottom')
+    id = Number(card?.getAttribute('data-bottom'))
+    creatorCtrl.removeFromActiveCards(id!)
+    const activeCardsIds = state.activeCards.map((card: any) => card.id)
 
     if (card) {
 
-      console.log(state.activeCards);
-
-      creatorCtrl.removeFromActiveCards(id)
-      creatorCtrl.toggleActive(id)
-
-
-      uiCtrl.renderCards(TypedCards, 'top');
+      creatorCtrl.toggleActive(id!)
+      uiCtrl.renderCards(TypedCards, 'top', activeCardsIds);
       uiCtrl.renderCards(state.activeCards, 'bottom');
+      checkActiveCards()
 
     }
 
   }
+  const checkActiveCards = () => {
+
+    const activeCards = creatorCtrl.getState().activeCards
+
+    if (activeCards.length >= 2) {
+      uiCtrl.toggleGenerateBtn(false)
+    } else {
+      uiCtrl.toggleGenerateBtn(true)
+    }
+  }
+  const reset = () => {
+    creatorCtrl.resetActives()
+    uiCtrl.resetCards()
+    creatorCtrl.resetCards()
+  }
+
   return {
 
     init: () => {
