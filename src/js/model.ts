@@ -1,5 +1,7 @@
+import { Card, IModel, State, Type } from "./types/index.types";
+
 const modelController = (function () {
-    const model = {
+    const model: IModel = {
         cards: [
             {
                 id: 1,
@@ -75,24 +77,26 @@ const modelController = (function () {
         ],
         state: {
             activeCards: [], //для активных карточек
-            type: "car", //тип карточек, которые будут отображаться
+            type: Type.DEFAULT, //тип карточек, которые будут отображаться
             count: 0, //количество карточек отображаемых на странице
         },
     };
-    const getTypeCards = (type, count) => {
+    const getTypeCards = (type: Type, count: number): Card[] => {
         return filtreCards(model.cards, type).slice(0, count);
     };
-    const toggleActive = (id) => {
+    const toggleActiveCard = (id: number): void => {
         const card = findCard(id);
-        card.active = !card.active;
+        if (card) {
+            card.active = !card.active;
+        }
     };
-    const filtreCards = (arr, type) => {
+    const filtreCards = (arr: Card[], type: Type): Card[] => {
         return arr.filter((card) => card.type === type);
     };
-    const addToActiveCards = (card) => {
+    const addToActiveCards = (card: Card): void => {
         model.state.activeCards.push(card);
     };
-    const removeFromActiveCards = (id) => {
+    const removeFromActiveCards = (id: number): void => {
         const indexActive = model.state.activeCards.findIndex(
             (card) => card.id === id,
         );
@@ -101,27 +105,28 @@ const modelController = (function () {
             model.state.activeCards.splice(indexActive, 1);
         }
     };
-    const resetActives = () => {
+    const resetActives = (): void => {
         model.state.activeCards = [];
     };
-    const findCard = (id) => {
-        return model.cards.find((card) => card.id === id);
+    const findCard = (id: number): Card => {
+        const card = model.cards.find((card) => card.id === id)!;
+        return card;
     };
-    const getCards = () => {
+    const getCards = (): Card[] => {
         return model.cards;
     };
-    const getState = () => {
+    const getState = (): State => {
         return model.state;
     };
 
-    const setupType = (type) => {
+    const setupType = (type: Type): void => {
         model.state.type = type;
     };
 
-    const setupCount = (count) => {
+    const setupCount = (count: number): void => {
         model.state.count = count;
     };
-    const resetCards = () => {
+    const resetCards = (): void => {
         model.cards.forEach((card) => {
             card.active = false;
         });
@@ -135,7 +140,7 @@ const modelController = (function () {
         removeFromActiveCards,
         getCards,
         setupType,
-        toggleActive,
+        toggleActiveCard,
         setupCount,
         getState,
         resetActives,
