@@ -1,6 +1,6 @@
 import "./style.css";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+document.querySelector("#app")!.innerHTML = `
    <div class="generator">
       <div class="controller">
         <h1 class="controller__title">Creator AI</h1>

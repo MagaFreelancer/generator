@@ -8,7 +8,7 @@ const viewController = (function () {
     controllerBtns: ".controller__list-btn",
   };
 
-  const renderCards = (cards: any, type: string, array: any[] = []) => {
+  const renderCards = (cards, type, array = []) => {
     let fun, container;
 
     if (type === "top") {
@@ -19,30 +19,30 @@ const viewController = (function () {
       container = DomStrings.wrapperBottomCards;
     }
 
-    document.querySelector(container)!.innerHTML = "";
+    document.querySelector(container).innerHTML = "";
 
-    cards.forEach((obj: any) => {
+    cards.forEach((obj) => {
       const index = array.indexOf(obj.id) + 1;
       fun({ ...obj, index });
     });
   };
   const resetCards = () => {
-    document.querySelector(DomStrings.wrapperTopCards)!.innerHTML = "";
-    document.querySelector(DomStrings.wrapperBottomCards)!.innerHTML = "";
+    document.querySelector(DomStrings.wrapperTopCards).innerHTML = "";
+    document.querySelector(DomStrings.wrapperBottomCards).innerHTML = "";
   };
   const resetBtns = () => {
     const btns = document.querySelectorAll(DomStrings.setBtns);
     btns.forEach((btn) => btn.classList.remove("controller__list-btn--active"));
   };
 
-  const toggleActive = (event: any) => {
+  const toggleActive = (event) => {
     const target = event.target;
 
     resetBtns();
     target.classList.add("controller__list-btn--active");
   };
 
-  const createTopCard = (obj: any) => {
+  const createTopCard = (obj) => {
     let html = ` 
         <div class="field__card field__card-top ${obj.active && "field__card--active"}" data-top="${obj.id}">
                  <img class="field__card-img" src="${obj.imgUrl}" alt="${obj.title}" />
@@ -53,7 +53,7 @@ const viewController = (function () {
       .querySelector(DomStrings.wrapperTopCards)
       ?.insertAdjacentHTML("beforeend", html);
   };
-  const createBottomCard = (obj: any) => {
+  const createBottomCard = (obj) => {
     let html = ` 
             <div class="field__card field__card-bottom" data-bottom="${obj.id}">
                  <img class="field__card-img" src="${obj.imgUrl}" alt="${obj.title}" />
@@ -63,8 +63,8 @@ const viewController = (function () {
       .querySelector(DomStrings.wrapperBottomCards)
       ?.insertAdjacentHTML("beforeend", html);
   };
-  const toggleGenerateBtn = (status: boolean): void => {
-    const generatorBottom = document.querySelector<HTMLButtonElement>(
+  const toggleGenerateBtn = (status) => {
+    const generatorBottom = document.querySelector(
       DomStrings.generateBtn,
     );
 

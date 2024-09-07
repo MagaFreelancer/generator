@@ -1,5 +1,5 @@
 const modelController = (function () {
-    const model: any = {
+    const model = {
         cards: [
             {
                 id: 1,
@@ -79,22 +79,22 @@ const modelController = (function () {
             count: 0, //количество карточек отображаемых на странице
         },
     };
-    const getTypeCards = (type: string, count: number) => {
+    const getTypeCards = (type, count) => {
         return filtreCards(model.cards, type).slice(0, count);
     };
-    const toggleActive = (id: number) => {
+    const toggleActive = (id) => {
         const card = findCard(id);
         card.active = !card.active;
     };
-    const filtreCards = (arr: any, type: string) => {
-        return arr.filter((card: any) => card.type === type);
+    const filtreCards = (arr, type) => {
+        return arr.filter((card) => card.type === type);
     };
-    const addToActiveCards = (card: any) => {
+    const addToActiveCards = (card) => {
         model.state.activeCards.push(card);
     };
-    const removeFromActiveCards = (id: number) => {
+    const removeFromActiveCards = (id) => {
         const indexActive = model.state.activeCards.findIndex(
-            (card: any) => card.id === id,
+            (card) => card.id === id,
         );
 
         if (indexActive !== -1) {
@@ -104,8 +104,8 @@ const modelController = (function () {
     const resetActives = () => {
         model.state.activeCards = [];
     };
-    const findCard = (id: number) => {
-        return model.cards.find((card: any) => card.id === id);
+    const findCard = (id) => {
+        return model.cards.find((card) => card.id === id);
     };
     const getCards = () => {
         return model.cards;
@@ -114,15 +114,15 @@ const modelController = (function () {
         return model.state;
     };
 
-    const setupType = (type: string) => {
+    const setupType = (type) => {
         model.state.type = type;
     };
 
-    const setupCount = (count: number) => {
+    const setupCount = (count) => {
         model.state.count = count;
     };
     const resetCards = () => {
-        model.cards.forEach((card: any) => {
+        model.cards.forEach((card) => {
             card.active = false;
         });
     };
