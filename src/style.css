@@ -1,329 +1,329 @@
 @font-face {
-  font-family: "GothamProBlack";
-  src: url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot");
-  src:
-    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.woff")
-      format("woff"),
-    url("./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.ttf")
-      format("truetype");
-  font-style: normal;
-  font-weight: normal;
+	font-family: 'GothamProBlack';
+	src: url('./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot');
+	src:
+		url('./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.woff')
+			format('woff'),
+		url('./assets/fonts/GothamPro/GothamProBlack/GothamProBlack.ttf')
+			format('truetype');
+	font-style: normal;
+	font-weight: normal;
 }
 
 @font-face {
-  font-family: "GothamProBold";
-  src: url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot");
-  src:
-    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.woff")
-      format("woff"),
-    url("./assets/fonts/GothamPro/GothamProBold/GothamProBold.ttf")
-      format("truetype");
-  font-style: normal;
-  font-weight: normal;
+	font-family: 'GothamProBold';
+	src: url('./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot');
+	src:
+		url('./assets/fonts/GothamPro/GothamProBold/GothamProBold.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/GothamPro/GothamProBold/GothamProBold.woff')
+			format('woff'),
+		url('./assets/fonts/GothamPro/GothamProBold/GothamProBold.ttf')
+			format('truetype');
+	font-style: normal;
+	font-weight: normal;
 }
 
 @font-face {
-  font-family: "GothamProMedium";
-  src: url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot");
-  src:
-    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.woff")
-      format("woff"),
-    url("./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.ttf")
-      format("truetype");
-  font-style: normal;
-  font-weight: normal;
+	font-family: 'GothamProMedium';
+	src: url('./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot');
+	src:
+		url('./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.woff')
+			format('woff'),
+		url('./assets/fonts/GothamPro/GothamProMedium/GothamProMedium.ttf')
+			format('truetype');
+	font-style: normal;
+	font-weight: normal;
 }
 
 @font-face {
-  font-family: "GothamProRegular";
-  src: url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot");
-  src:
-    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.woff")
-      format("woff"),
-    url("./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.ttf")
-      format("truetype");
-  font-style: normal;
-  font-weight: normal;
+	font-family: 'GothamProRegular';
+	src: url('./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot');
+	src:
+		url('./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.woff')
+			format('woff'),
+		url('./assets/fonts/GothamPro/GothamProRegular/GothamProRegular.ttf')
+			format('truetype');
+	font-style: normal;
+	font-weight: normal;
 }
 
 @font-face {
-  font-family: "GothamProLight";
-  src: url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot");
-  src:
-    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.woff")
-      format("woff"),
-    url("./assets/fonts/GothamPro/GothamProLight/GothamProLight.ttf")
-      format("truetype");
-  font-style: normal;
-  font-weight: normal;
+	font-family: 'GothamProLight';
+	src: url('./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot');
+	src:
+		url('./assets/fonts/GothamPro/GothamProLight/GothamProLight.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/GothamPro/GothamProLight/GothamProLight.woff')
+			format('woff'),
+		url('./assets/fonts/GothamPro/GothamProLight/GothamProLight.ttf')
+			format('truetype');
+	font-style: normal;
+	font-weight: normal;
 }
 :root {
-  --whiteColor: #ffffff;
-  --greenColor: #4bcd1b;
-  --greyColor: #8e8e8e;
-  --greyColor200: #565555;
-  --greyColor600: #2f2f2f;
+	--whiteColor: #ffffff;
+	--greenColor: #4bcd1b;
+	--greyColor: #8e8e8e;
+	--greyColor200: #565555;
+	--greyColor600: #2f2f2f;
 }
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 body {
-  font-family: "GothamProLight";
+	font-family: 'GothamProLight';
 }
 ul,
 li {
-  list-style-type: none;
+	list-style-type: none;
 }
 .generator {
-  max-width: 1400px;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 900px;
-  margin: 100px auto;
+	max-width: 1400px;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	height: 900px;
+	margin: 100px auto;
 }
 .controller {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--greyColor200);
-  padding: 40px;
-  -webkit-box-shadow: 0px 5px 10px 15px rgba(0, 0, 0, 0.05) inset;
-  -moz-box-shadow: 0px 5px 10px 15px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: 0px 5px 10px 15px rgba(0, 0, 0, 0.05) inset;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--greyColor200);
+	padding: 40px;
+	-webkit-box-shadow: 0px 5px 10px 15px rgba(0, 0, 0, 0.05) inset;
+	-moz-box-shadow: 0px 5px 10px 15px rgba(0, 0, 0, 0.05) inset;
+	box-shadow: 0px 5px 10px 15px rgba(0, 0, 0, 0.05) inset;
 }
 .controller__title {
-  font-size: 24px;
-  margin-bottom: 61px;
-  color: var(--greenColor);
-  font-weight: 700;
-  font-size: 36px;
+	font-size: 24px;
+	margin-bottom: 61px;
+	color: var(--greenColor);
+	font-weight: 700;
+	font-size: 36px;
 }
 .controller__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 20px;
+	height: 100%;
 }
 .controller__list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 }
 
 .controller__list-btn {
-  width: 100%;
-  border-color: var(--greyColor);
-  background-color: var(--greyColor);
-  transition: opacity 0.2s ease-in-out;
-  padding: 11px 40px;
-  border-radius: 8px;
-  font-size: 24px;
-  color: var(--whiteColor);
-  transition:
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out;
+	width: 100%;
+	border-color: var(--greyColor);
+	background-color: var(--greyColor);
+	transition: opacity 0.2s ease-in-out;
+	padding: 11px 40px;
+	border-radius: 8px;
+	font-size: 24px;
+	color: var(--whiteColor);
+	transition:
+		background-color 0.2s ease-in-out,
+		border-color 0.2s ease-in-out;
 }
 .controller__list-btn:hover,
 .controller__list-btn.controller__list-btn--active {
-  border: 1px solid var(--greenColor);
-  background-color: transparent;
+	border: 1px solid var(--greenColor);
+	background-color: transparent;
 }
 .controller__generate {
-  width: 100%;
-  background-color: var(--greenColor);
-  color: var(--whiteColor);
-  font-size: 24px;
-  font-weight: 500;
-  padding: 11px 30px;
-  border-radius: 8px;
+	width: 100%;
+	background-color: var(--greenColor);
+	color: var(--whiteColor);
+	font-size: 24px;
+	font-weight: 500;
+	padding: 11px 30px;
+	border-radius: 8px;
 }
 .field {
-  background-color: var(--greyColor600);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	background-color: var(--greyColor600);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .field__cards {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  padding: 20px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+	padding: 20px;
 }
 .field__card {
-  max-width: 300px;
-  position: relative;
-  width: 100%;
-  border: 1px solid #000000;
-  height: 300px;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  transition: opacity 0.2s ease-in-out;
-  cursor: pointer;
+	max-width: 300px;
+	position: relative;
+	width: 100%;
+	border: 1px solid #000000;
+	height: 300px;
+	border-radius: 10px;
+	overflow: hidden;
+	text-align: center;
+	transition: opacity 0.2s ease-in-out;
+	cursor: pointer;
 }
 .field__card-top::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-position: center center;
-  width: 45px;
-  height: 45px;
-  background: url("../src/assets/svg/plus.svg");
-  background-repeat: no-repeat;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-position: center center;
+	width: 45px;
+	height: 45px;
+	background: url('../src/assets/svg/plus.svg');
+	background-repeat: no-repeat;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
 }
 .field__card:hover::after {
-  opacity: 1;
+	opacity: 1;
 }
 .field__card-img {
-  object-fit: cover;
+	object-fit: cover;
 }
 .field__card-icon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 30px;
-  height: 30px;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease-in-out;
-  pointer-events: none;
-  z-index: 1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 30px;
+	height: 30px;
+	opacity: 0;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.2s ease-in-out;
+	pointer-events: none;
+	z-index: 1;
 }
 .field__card-bottom {
-  position: relative;
+	position: relative;
 }
 
 .field__card-bottom::after {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 70px;
-  height: 70px;
-  background: url("../src/assets/svg/min.svg");
-  background-repeat: no-repeat;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 70px;
+	height: 70px;
+	background: url('../src/assets/svg/min.svg');
+	background-repeat: no-repeat;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
 }
 .field__card-bottom:hover::after {
-  opacity: 1;
+	opacity: 1;
 }
 .field__card:hover .field__card-icon {
-  opacity: 1;
-  pointer-events: none;
+	opacity: 1;
+	pointer-events: none;
 }
 
 .field__card-index {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  padding: 5px 10px;
-  width: 100%;
-  height: 100%;
-  background: rgba(9, 9, 11, 0.5);
-  z-index: 1;
-  pointer-events: none;
-  color: var(--whiteColor);
-  font-size: 35px;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-  cursor: pointer;
-  pointer-events: all;
-  transition: opacity 0.2s ease-in-out;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	padding: 5px 10px;
+	width: 100%;
+	height: 100%;
+	background: rgba(9, 9, 11, 0.5);
+	z-index: 1;
+	pointer-events: none;
+	color: var(--whiteColor);
+	font-size: 35px;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+	cursor: pointer;
+	pointer-events: all;
+	transition: opacity 0.2s ease-in-out;
 }
 .field__card.field__card--active .field__card-index {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
+	opacity: 1;
+	pointer-events: none;
+	cursor: default;
 }
 .field__card.field__card--active {
-  pointer-events: none;
-  cursor: default;
+	pointer-events: none;
+	cursor: default;
 }
 .field__card-img {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 .field__cards-bottom {
-  padding: 10px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  border-top: 1px solid #000000;
-  height: 150px;
-  background-color: var(--greyColor);
+	padding: 10px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	border-top: 1px solid #000000;
+	height: 150px;
+	background-color: var(--greyColor);
 }
 
 .field__cards-bottom .field__card {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 }
 .field__cards-bottom .field__card-icon {
-  position: absolute;
-  left: 12%;
-  top: 13%;
-  width: 25px;
-  height: 25px;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease-in-out;
-  pointer-events: none;
-  z-index: 1;
+	position: absolute;
+	left: 12%;
+	top: 13%;
+	width: 25px;
+	height: 25px;
+	opacity: 0;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.2s ease-in-out;
+	pointer-events: none;
+	z-index: 1;
 }
 .btn {
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+	padding: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
 }
 
 .btn:disabled {
-  background-color: #ddd;
-  cursor: not-allowed;
+	background-color: #ddd;
+	cursor: not-allowed;
 }
 
 .btn-primary {
-  background-color: #28a745;
+	background-color: #28a745;
 }
 button {
-  border: 0;
-  cursor: pointer;
+	border: 0;
+	cursor: pointer;
 }
 button:disabled {
-  opacity: 0.8;
-  cursor: default;
+	opacity: 0.8;
+	cursor: default;
 }
 
 .btn:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
